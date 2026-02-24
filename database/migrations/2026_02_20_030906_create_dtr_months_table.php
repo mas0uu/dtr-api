@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('dtr_months', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedTinyInteger('month'); 
+            $table->unsignedSmallInteger('year');
+            $table->boolean('is_fulfilled')->default(false);
             $table->timestamps();
         });
     }
